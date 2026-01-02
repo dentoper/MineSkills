@@ -13,6 +13,7 @@ import org.bukkit.potion.PotionEffectType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class SkillApplier {
     private final Map<UUID, Integer> jumpCount = new HashMap<>();
@@ -39,9 +40,13 @@ public class SkillApplier {
     private void applyPowerBlow(Player player, int level) {
         UUID uuid = player.getUniqueId();
 
-        player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getModifiers().stream()
+        var modifiersToRemove = player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE)
+            .getModifiers()
+            .stream()
             .filter(m -> m.getName().equals("mineskills_power_blow"))
-            .forEach(m -> player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).removeModifier(m));
+            .collect(Collectors.toList());
+
+        modifiersToRemove.forEach(m -> player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).removeModifier(m));
 
         if (level > 0) {
             double bonus = 0;
@@ -62,9 +67,13 @@ public class SkillApplier {
     }
 
     private void applyIronSkin(Player player, int level) {
-        player.getAttribute(Attribute.GENERIC_ARMOR).getModifiers().stream()
+        var modifiersToRemove = player.getAttribute(Attribute.GENERIC_ARMOR)
+            .getModifiers()
+            .stream()
             .filter(m -> m.getName().equals("mineskills_iron_skin"))
-            .forEach(m -> player.getAttribute(Attribute.GENERIC_ARMOR).removeModifier(m));
+            .collect(Collectors.toList());
+
+        modifiersToRemove.forEach(m -> player.getAttribute(Attribute.GENERIC_ARMOR).removeModifier(m));
 
         if (level > 0) {
             double armor = level * 0.5;
@@ -79,9 +88,13 @@ public class SkillApplier {
     }
 
     private void applyExtraHealth(Player player, int level) {
-        player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getModifiers().stream()
+        var modifiersToRemove = player.getAttribute(Attribute.GENERIC_MAX_HEALTH)
+            .getModifiers()
+            .stream()
             .filter(m -> m.getName().equals("mineskills_extra_health"))
-            .forEach(m -> player.getAttribute(Attribute.GENERIC_MAX_HEALTH).removeModifier(m));
+            .collect(Collectors.toList());
+
+        modifiersToRemove.forEach(m -> player.getAttribute(Attribute.GENERIC_MAX_HEALTH).removeModifier(m));
 
         if (level > 0) {
             double[] healthBonus = {2, 5, 9, 13, 18};
@@ -106,9 +119,13 @@ public class SkillApplier {
     }
 
     private void applySwiftMovement(Player player, int level) {
-        player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).getModifiers().stream()
+        var modifiersToRemove = player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)
+            .getModifiers()
+            .stream()
             .filter(m -> m.getName().equals("mineskills_swift_movement"))
-            .forEach(m -> player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).removeModifier(m));
+            .collect(Collectors.toList());
+
+        modifiersToRemove.forEach(m -> player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).removeModifier(m));
 
         if (level > 0) {
             double baseSpeed = 0.1;
@@ -125,9 +142,13 @@ public class SkillApplier {
     }
 
     private void applyEvasion(Player player, int level) {
-        player.getAttribute(Attribute.GENERIC_ARMOR_TOUGHNESS).getModifiers().stream()
+        var modifiersToRemove = player.getAttribute(Attribute.GENERIC_ARMOR_TOUGHNESS)
+            .getModifiers()
+            .stream()
             .filter(m -> m.getName().equals("mineskills_evasion"))
-            .forEach(m -> player.getAttribute(Attribute.GENERIC_ARMOR_TOUGHNESS).removeModifier(m));
+            .collect(Collectors.toList());
+
+        modifiersToRemove.forEach(m -> player.getAttribute(Attribute.GENERIC_ARMOR_TOUGHNESS).removeModifier(m));
 
         if (level > 0) {
             double toughness = level * 0.5;
@@ -200,9 +221,13 @@ public class SkillApplier {
     }
 
     private void applyFastMining(Player player, int level) {
-        player.getAttribute(Attribute.PLAYER_BLOCK_BREAK_SPEED).getModifiers().stream()
+        var modifiersToRemove = player.getAttribute(Attribute.PLAYER_BLOCK_BREAK_SPEED)
+            .getModifiers()
+            .stream()
             .filter(m -> m.getName().equals("mineskills_fast_mining"))
-            .forEach(m -> player.getAttribute(Attribute.PLAYER_BLOCK_BREAK_SPEED).removeModifier(m));
+            .collect(Collectors.toList());
+
+        modifiersToRemove.forEach(m -> player.getAttribute(Attribute.PLAYER_BLOCK_BREAK_SPEED).removeModifier(m));
 
         if (level > 0) {
             double bonus = level * 0.1;
@@ -224,9 +249,13 @@ public class SkillApplier {
     }
 
     private void applyMagicShield(Player player, int level) {
-        player.getAttribute(Attribute.GENERIC_ARMOR).getModifiers().stream()
+        var modifiersToRemove = player.getAttribute(Attribute.GENERIC_ARMOR)
+            .getModifiers()
+            .stream()
             .filter(m -> m.getName().equals("mineskills_magic_shield"))
-            .forEach(m -> player.getAttribute(Attribute.GENERIC_ARMOR).removeModifier(m));
+            .collect(Collectors.toList());
+
+        modifiersToRemove.forEach(m -> player.getAttribute(Attribute.GENERIC_ARMOR).removeModifier(m));
 
         if (level > 0) {
             double armor = level * 0.5;
