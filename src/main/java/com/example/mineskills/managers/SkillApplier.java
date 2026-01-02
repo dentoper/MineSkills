@@ -38,8 +38,6 @@ public class SkillApplier {
     }
 
     private void applyPowerBlow(Player player, int level) {
-        UUID uuid = player.getUniqueId();
-
         var modifiersToRemove = player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE)
             .getModifiers()
             .stream()
