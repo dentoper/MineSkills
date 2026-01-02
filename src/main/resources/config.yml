@@ -1,0 +1,23 @@
+# MineSkills Configuration
+
+# Action tracking thresholds
+action-tracking:
+  mining:
+    ore_blocks_for_point: 100
+    normal_blocks_for_point: 50
+  combat:
+    damage_for_point: 50
+  movement:
+    blocks_for_point: 1000
+    jumps_for_point: 50
+
+# Auto-save interval in minutes
+auto-save-interval: 5
+
+# Starting skill points for new players
+starting-skill-points: 20
+
+# GUI settings
+gui:
+  title: "<gold><bold>Skill Tree</bold></gold>"
+  size: 54

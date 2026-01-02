@@ -1,0 +1,21 @@
+name: MineSkills
+version: ${project.version}
+main: com.example.mineskills.MineSkillsPlugin
+api-version: 1.21
+author: MineSkills Team
+description: A comprehensive skill system plugin for Paper 1.21
+
+commands:
+  skilltree:
+    description: Open skill tree menu
+    usage: /skilltree <open|info|addpoints>
+    aliases: [skills, skill]
+    permission: mineskills.use
+
+permissions:
+  mineskills.use:
+    description: Allows using skill tree commands
+    default: true
+  mineskills.admin:
+    description: Allows adding skill points to players
+    default: op
