@@ -1,5 +1,6 @@
 package com.example.mineskills.models;
 
+import com.example.mineskills.utils.ItemBuilder;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Material;

@@ -11,12 +11,14 @@ import com.example.mineskills.models.Skill;
 import com.example.mineskills.models.SkillBranch;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class GuiClickListener implements Listener {
@@ -35,42 +37,42 @@ public class GuiClickListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onInventoryClick(InventoryClickEvent event) {
         if (!(event.getWhoClicked() instanceof Player)) return;
-        
+
         Player player = (Player) event.getWhoClicked();
-        String title = event.getView().title();
-        
+        String title = LegacyComponentSerializer.legacySection().serialize(event.getView().title());
+
         if (title == null || !title.contains("Skill")) return;
-        
+
         event.setCancelled(true);
-        
+
         if (event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR) return;
-        
+
         ItemStack clicked = event.getCurrentItem();
         int slot = event.getSlot();
-        
+
         if (title.contains("Chain")) {
             handleSubMenuClick(player, slot, clicked);
         } else {
-            handleMainMenuClick(player, slot, clicked);
+            handleMainMenuClick(player, slot, clicked, event.isRightClick());
         }
     }
 
-    private void handleMainMenuClick(Player player, int slot, ItemStack clicked) {
+    private void handleMainMenuClick(Player player, int slot, ItemStack clicked, boolean isRightClick) {
         Material type = clicked.getType();
-        
+
         if (type == Material.BARRIER && slot == 45) {
             player.closeInventory();
             return;
         }
-        
+
         if (type == Material.EMERALD && slot == 53) {
             refreshMainMenu(player);
             return;
         }
-        
+
         Skill skill = getSkillAtSlot(slot);
         if (skill != null) {
-            if (event.isRightClick()) {
+            if (isRightClick) {
                 guiManager.openSkillSubMenu(player, skill);
             } else {
                 tryUpgradeSkill(player, skill);
