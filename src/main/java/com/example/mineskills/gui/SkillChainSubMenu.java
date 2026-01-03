@@ -35,7 +35,7 @@ public class SkillChainSubMenu {
 
         Inventory inv = Bukkit.createInventory(null, 54,
             Component.text().color(skill.color())
-                .append(Component.text(skill.name() + " Chain", TextDecoration.BOLD))
+                .append(Component.text(skill.name() + " Chain").decorate(TextDecoration.BOLD))
                 .build()
         );
 
@@ -80,18 +80,18 @@ public class SkillChainSubMenu {
         if (isUnlocked) {
             builder.name(Component.text()
                 .append(Component.text("✓ ").color(NamedTextColor.GREEN))
-                .append(Component.text("Level " + level, TextDecoration.BOLD).color(skill.color()))
+                .append(Component.text("Level " + level).decorate(TextDecoration.BOLD).color(skill.color()))
                 .build());
             builder.glow();
         } else if (isNextLevel) {
             builder.name(Component.text()
                 .append(Component.text("→ ").color(NamedTextColor.YELLOW))
-                .append(Component.text("Level " + level, TextDecoration.BOLD).color(skill.color()))
+                .append(Component.text("Level " + level).decorate(TextDecoration.BOLD).color(skill.color()))
                 .build());
         } else {
             builder.name(Component.text()
                 .append(Component.text("✗ ").color(NamedTextColor.DARK_GRAY))
-                .append(Component.text("Level " + level, TextDecoration.BOLD).color(NamedTextColor.DARK_GRAY))
+                .append(Component.text("Level " + level).decorate(TextDecoration.BOLD).color(NamedTextColor.DARK_GRAY))
                 .build());
         }
 
