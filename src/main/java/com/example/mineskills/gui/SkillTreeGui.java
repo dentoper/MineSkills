@@ -34,9 +34,9 @@ public class SkillTreeGui {
     }
 
     public Inventory createInventory() {
-        Inventory inv = Bukkit.createInventory(null, 54, 
+        Inventory inv = Bukkit.createInventory(null, 54,
             Component.text().color(NamedTextColor.GOLD)
-                .append(Component.text("Skill Tree", TextDecoration.BOLD))
+                .append(Component.text("Skill Tree").decorate(TextDecoration.BOLD))
                 .build()
         );
 
@@ -104,7 +104,7 @@ public class SkillTreeGui {
 
         return new ItemBuilder(branch.icon())
             .name(Component.text().color(branch.color())
-                .append(Component.text(branch.name(), TextDecoration.BOLD))
+                .append(Component.text(branch.name()).decorate(TextDecoration.BOLD))
                 .build())
             .lore(lore.toArray(new Component[0]))
             .glow()
@@ -126,7 +126,7 @@ public class SkillTreeGui {
     private void fillInfoPanel(Inventory inv, PlayerSkillData data) {
         ItemStack info = new ItemBuilder(Material.PLAYER_HEAD)
             .name(Component.text().color(NamedTextColor.WHITE)
-                .append(Component.text("Your Stats", TextDecoration.BOLD))
+                .append(Component.text("Your Stats").decorate(TextDecoration.BOLD))
                 .build())
             .lore(
                 Component.empty(),
