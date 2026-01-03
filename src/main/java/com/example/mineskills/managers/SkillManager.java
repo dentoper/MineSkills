@@ -81,7 +81,7 @@ public class SkillManager {
                 new SkillChainBonus(1, Material.REDSTONE, Component.text("+2 Max HP")),
                 new SkillChainBonus(2, Material.GOLDEN_APPLE, Component.text("+3 Max HP")),
                 new SkillChainBonus(3, Material.ENCHANTED_GOLDEN_APPLE, Component.text("+4 Max HP")),
-                new SkillChainBonus(4, Material.TOTEM, Component.text("+4 Max HP")),
+                new SkillChainBonus(4, Material.TOTEM_OF_UNDYING, Component.text("+4 Max HP")),
                 new SkillChainBonus(5, Material.BEACON, Component.text("+5 Max HP"))
             )),
             null
@@ -172,7 +172,7 @@ public class SkillManager {
                 new SkillChainBonus(2, Material.ENCHANTED_GOLDEN_APPLE, Component.text("Regeneration II")),
                 new SkillChainBonus(3, Material.BEACON, Component.text("Regeneration II")),
                 new SkillChainBonus(4, Material.GOLDEN_CARROT, Component.text("Regeneration III")),
-                new SkillChainBonus(5, Material.TOTEM, Component.text("Regeneration III"))
+                new SkillChainBonus(5, Material.TOTEM_OF_UNDYING, Component.text("Regeneration III"))
             )),
             null
         );

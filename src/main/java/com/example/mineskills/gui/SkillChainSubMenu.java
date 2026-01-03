@@ -6,6 +6,7 @@ import com.example.mineskills.models.PlayerSkillData;
 import com.example.mineskills.models.Skill;
 import com.example.mineskills.models.SkillChainBonus;
 import com.example.mineskills.utils.ItemBuilder;
+import com.example.mineskills.utils.ProgressBar;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
